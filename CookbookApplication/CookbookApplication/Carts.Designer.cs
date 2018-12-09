@@ -40,7 +40,7 @@
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(300, 150);
             this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "Суп Харчо";
+            this.metroTile1.Text = "Название блюда";
             this.metroTile1.TileImage = global::CookbookApplication.Properties.Resources.Харчо;
             this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
