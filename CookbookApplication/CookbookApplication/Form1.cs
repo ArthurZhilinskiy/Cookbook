@@ -26,44 +26,37 @@ namespace CookbookApplication
 
         private void MainApplicationForm_Load(object sender, EventArgs e)
         {
+            getRecipes();
+        }
+
+        //метод получает путь к картинк из БД
+        private void getRecipes()
+        {
             SqlConnection connection = new SqlConnection(connectionString);
             try
             {
                 connection.Open();
-                MessageBox.Show("OK");
+               
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e.Message);
                 connection.Close();
             }
-            //Carts cart = new Carts();
-            ////загружаем картинку в контрол
-            //cart.metroTile1.TileImage = Image.FromFile(getImage()); 
-            //cart.metroTile1.Click += new System.EventHandler(cart_Click);
-            //flowLayoutPanel1.Controls.Add(cart);
-        }
 
-        //метод получает путь к картинк из БД
-        private string getImage()
-        {
-            //SqlConnection connection = new SqlConnection(connectionString);
-            //try
-            //{
-            //    connection.Open();
-            //    MessageBox.Show("OK");
-            //}
-            //catch (Exception e)
-            //{
-            //    MessageBox.Show(e.Message);
-            //    connection.Close();
-            //}
-            
-            //SqlCommand command = new SqlCommand("SELECT ", connection);
-            //SqlDataReader reader = command.ExecuteReader();
-
-            string a = "";
-            return a;
+            SqlCommand command = new SqlCommand("SELECT image_recipe, name_recipe FROM Recipes", connection);
+            SqlDataReader reader;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Carts cart = new Carts();
+                //загружаем картинку в контрол
+                cart.metroTile1.TileImage = Image.FromFile(Application.StartupPath+@"\"+reader[0].ToString());
+                cart.metroTile1.Text = reader[1].ToString();
+                cart.metroTile1.Click += new System.EventHandler(cart_Click);
+                flowLayoutPanel1.Controls.Add(cart);
+            }
+            connection.Close();
         }
 
         private void cart_Click(object sender, EventArgs e)
