@@ -76,12 +76,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Recipe.Designer.cs">
-      <DependentUpon>Recipe.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Carts.resx">
       <DependentUpon>Carts.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,9 +95,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Recipe.resx">
-      <DependentUpon>Recipe.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

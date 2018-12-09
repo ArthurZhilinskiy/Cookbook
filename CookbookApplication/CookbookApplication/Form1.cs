@@ -34,6 +34,7 @@ namespace CookbookApplication
             FormWithRecipe formWithRecipe = new FormWithRecipe();
             string temp = sender.ToString();
             formWithRecipe.Text = temp.Substring(41);
+            formWithRecipe.metroLabel1.Focus();
             formWithRecipe.Show();
         }
     }

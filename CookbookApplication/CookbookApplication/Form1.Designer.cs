@@ -140,6 +140,7 @@
             this.Controls.Add(this.mLeftSidePanel);
             this.MinimumSize = new System.Drawing.Size(760, 480);
             this.Name = "MainApplicationForm";
+            this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Cookbook";
             this.Load += new System.EventHandler(this.MainApplicationForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainApplicationForm_SizeChanged);
