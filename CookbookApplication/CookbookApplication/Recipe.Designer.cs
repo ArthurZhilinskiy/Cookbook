@@ -1,6 +1,6 @@
 ﻿namespace CookbookApplication
 {
-    partial class Carts
+    partial class Recipe
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -33,32 +33,26 @@
             // 
             // metroTile1
             // 
-            this.metroTile1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTile1.Location = new System.Drawing.Point(0, 0);
+            this.metroTile1.Location = new System.Drawing.Point(12, 21);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(300, 150);
+            this.metroTile1.Size = new System.Drawing.Size(253, 127);
             this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "Суп Харчо";
-            this.metroTile1.TileImage = global::CookbookApplication.Properties.Resources.Харчо;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.metroTile1.UseTileImage = true;
+            this.metroTile1.Text = "metroTile1";
             // 
-            // Carts
+            // Recipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.metroTile1);
-            this.Name = "Carts";
-            this.Size = new System.Drawing.Size(300, 150);
+            this.Name = "Recipe";
+            this.Size = new System.Drawing.Size(280, 455);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }

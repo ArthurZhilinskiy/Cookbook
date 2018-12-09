@@ -21,5 +21,20 @@ namespace CookbookApplication
         {
             this.Refresh();
         }
+
+        private void MainApplicationForm_Load(object sender, EventArgs e)
+        {
+            Carts cart = new Carts();
+            cart.metroTile1.Click += new System.EventHandler(cart_Click);
+            flowLayoutPanel1.Controls.Add(cart);
+        }
+
+        private void cart_Click(object sender, EventArgs e)
+        {
+            FormWithRecipe formWithRecipe = new FormWithRecipe();
+            string temp = sender.ToString();
+            formWithRecipe.Text = temp.Substring(41);
+            formWithRecipe.Show();
+        }
     }
 }

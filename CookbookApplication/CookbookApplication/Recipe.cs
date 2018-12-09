@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CookbookApplication
 {
-    public partial class Carts : MetroFramework.Controls.MetroUserControl
+    public partial class Recipe : UserControl
     {
-        public Carts()
+        public Recipe()
         {
             InitializeComponent();
-        }
-
-        public override string ToString()
-        {
-            return metroTile1.Text;
         }
     }
 }
