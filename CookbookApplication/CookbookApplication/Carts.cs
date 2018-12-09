@@ -12,10 +12,11 @@ namespace CookbookApplication
 {
     public partial class Carts : MetroFramework.Controls.MetroUserControl
     {
+        public string id;
         public Carts()
         {
             InitializeComponent();
-
+            metroLabel1.Text = id;
         }
 
         public override string ToString()

@@ -45,7 +45,7 @@ namespace CookbookApplication
                 connection.Close();
             }
 
-            SqlCommand command = new SqlCommand("SELECT image_recipe, name_recipe FROM Recipes", connection);
+            SqlCommand command = new SqlCommand("SELECT image_recipe, name_recipe, id FROM Recipes", connection);
             SqlDataReader reader;
             reader = command.ExecuteReader();
             while (reader.Read())
@@ -54,6 +54,7 @@ namespace CookbookApplication
                 //загружаем картинку в контрол
                 cart.metroTile1.TileImage = Image.FromFile(Application.StartupPath+@"\"+reader[0].ToString());
                 cart.metroTile1.Text = reader[1].ToString();
+                cart.id = reader[2].ToString();
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
                 flowLayoutPanel1.Controls.Add(cart);
             }
@@ -66,6 +67,29 @@ namespace CookbookApplication
             MetroFramework.Controls.MetroTile mt = sender as MetroFramework.Controls.MetroTile;
             formWithRecipe.pictureBox1.Image = mt.TileImage;
             formWithRecipe.Text = mt.Text;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+            
+            SqlCommand command = new SqlCommand("SELECT ingredients, steps FROM Descryption WHERE name = N'"+mt.Text+"'", connection);
+            SqlDataReader reader;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                formWithRecipe.rtbIngedients.Text = reader[0].ToString();
+                formWithRecipe.rtbSteps.Text = reader[1].ToString();
+            }
+            connection.Close();
+
             formWithRecipe.Show();
         }
     }
