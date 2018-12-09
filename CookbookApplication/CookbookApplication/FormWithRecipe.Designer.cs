@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rtbIngedients = new System.Windows.Forms.RichTextBox();
+            this.rtbSteps = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,37 +47,38 @@
             this.metroLabel1.TabIndex = 1;
             this.metroLabel1.Text = "Ингредиенты:";
             // 
-            // richTextBox1
+            // rtbIngedients
             // 
-            this.richTextBox1.AutoWordSelection = true;
-            this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(329, 88);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ShowSelectionMargin = true;
-            this.richTextBox1.Size = new System.Drawing.Size(309, 125);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.rtbIngedients.AutoWordSelection = true;
+            this.rtbIngedients.BackColor = System.Drawing.Color.White;
+            this.rtbIngedients.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbIngedients.Location = new System.Drawing.Point(329, 88);
+            this.rtbIngedients.Name = "rtbIngedients";
+            this.rtbIngedients.ReadOnly = true;
+            this.rtbIngedients.ShowSelectionMargin = true;
+            this.rtbIngedients.Size = new System.Drawing.Size(309, 125);
+            this.rtbIngedients.TabIndex = 3;
+            this.rtbIngedients.Text = "";
             // 
-            // richTextBox2
+            // rtbSteps
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.White;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richTextBox2.Location = new System.Drawing.Point(23, 256);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(615, 201);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "";
+            this.rtbSteps.BackColor = System.Drawing.Color.White;
+            this.rtbSteps.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbSteps.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rtbSteps.Location = new System.Drawing.Point(23, 256);
+            this.rtbSteps.Name = "rtbSteps";
+            this.rtbSteps.ReadOnly = true;
+            this.rtbSteps.Size = new System.Drawing.Size(615, 201);
+            this.rtbSteps.TabIndex = 2;
+            this.rtbSteps.Text = "";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Location = new System.Drawing.Point(23, 60);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 153);
+            this.pictureBox1.Size = new System.Drawing.Size(300, 150);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -98,8 +99,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 480);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbSteps);
+            this.Controls.Add(this.rtbIngedients);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
@@ -115,10 +116,10 @@
         }
 
         #endregion
-        public System.Windows.Forms.RichTextBox richTextBox1;
-        public System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.RichTextBox rtbIngedients;
+        public System.Windows.Forms.RichTextBox rtbSteps;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         public MetroFramework.Controls.MetroLabel metroLabel1;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

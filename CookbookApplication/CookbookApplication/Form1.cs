@@ -14,6 +14,7 @@ namespace CookbookApplication
     public partial class MainApplicationForm : MetroFramework.Forms.MetroForm
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\CookBook.mdf;Integrated Security = True; Connect Timeout = 30";
+
         public MainApplicationForm()
         {
             InitializeComponent();
@@ -62,8 +63,9 @@ namespace CookbookApplication
         private void cart_Click(object sender, EventArgs e)
         {
             FormWithRecipe formWithRecipe = new FormWithRecipe();
-            string temp = sender.ToString();
-            formWithRecipe.Text = temp.Substring(41);
+            MetroFramework.Controls.MetroTile mt = sender as MetroFramework.Controls.MetroTile;
+            formWithRecipe.pictureBox1.Image = mt.TileImage;
+            formWithRecipe.Text = mt.Text;
             formWithRecipe.Show();
         }
     }
