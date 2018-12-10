@@ -52,7 +52,7 @@ namespace CookbookApplication
             {
                 Carts cart = new Carts();
                 //загружаем картинку в контрол
-                cart.metroTile1.TileImage = Image.FromFile(Application.StartupPath+@"\"+reader[0].ToString());
+                cart.metroTile1.TileImage = Image.FromFile(Application.StartupPath + @"\" + reader[0].ToString());
                 cart.metroTile1.Text = reader[1].ToString();
                 cart.id = reader[2].ToString();
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);

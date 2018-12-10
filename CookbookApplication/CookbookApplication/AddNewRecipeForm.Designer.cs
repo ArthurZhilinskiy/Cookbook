@@ -36,11 +36,11 @@
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rtbSteps = new System.Windows.Forms.RichTextBox();
-            this.rtbIngredients = new System.Windows.Forms.RichTextBox();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.rtbName = new System.Windows.Forms.RichTextBox();
-            this.rtbPrice = new System.Windows.Forms.RichTextBox();
+            this.rtbSteps = new System.Windows.Forms.TextBox();
+            this.rtbIngredients = new System.Windows.Forms.TextBox();
+            this.rtbName = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             this.metroTile1.TabIndex = 0;
             this.metroTile1.Text = "Добавить";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // metroLabel1
             // 
@@ -117,26 +118,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // rtbSteps
-            // 
-            this.rtbSteps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rtbSteps.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbSteps.Location = new System.Drawing.Point(329, 85);
-            this.rtbSteps.Name = "rtbSteps";
-            this.rtbSteps.Size = new System.Drawing.Size(302, 334);
-            this.rtbSteps.TabIndex = 5;
-            this.rtbSteps.Text = "";
-            // 
-            // rtbIngredients
-            // 
-            this.rtbIngredients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rtbIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbIngredients.Location = new System.Drawing.Point(23, 350);
-            this.rtbIngredients.Name = "rtbIngredients";
-            this.rtbIngredients.Size = new System.Drawing.Size(300, 69);
-            this.rtbIngredients.TabIndex = 6;
-            this.rtbIngredients.Text = "";
-            // 
             // metroTile3
             // 
             this.metroTile3.Location = new System.Drawing.Point(23, 241);
@@ -146,35 +127,44 @@
             this.metroTile3.TabIndex = 0;
             this.metroTile3.Text = "Выбрать изображение";
             this.metroTile3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
+            // 
+            // rtbSteps
+            // 
+            this.rtbSteps.Location = new System.Drawing.Point(329, 85);
+            this.rtbSteps.Multiline = true;
+            this.rtbSteps.Name = "rtbSteps";
+            this.rtbSteps.Size = new System.Drawing.Size(302, 334);
+            this.rtbSteps.TabIndex = 5;
+            // 
+            // rtbIngredients
+            // 
+            this.rtbIngredients.Location = new System.Drawing.Point(23, 349);
+            this.rtbIngredients.Multiline = true;
+            this.rtbIngredients.Name = "rtbIngredients";
+            this.rtbIngredients.Size = new System.Drawing.Size(300, 70);
+            this.rtbIngredients.TabIndex = 5;
             // 
             // rtbName
             // 
-            this.rtbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rtbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbName.Location = new System.Drawing.Point(23, 298);
-            this.rtbName.Multiline = false;
+            this.rtbName.Location = new System.Drawing.Point(24, 299);
             this.rtbName.Name = "rtbName";
-            this.rtbName.Size = new System.Drawing.Size(177, 18);
-            this.rtbName.TabIndex = 7;
-            this.rtbName.Text = "";
+            this.rtbName.Size = new System.Drawing.Size(176, 20);
+            this.rtbName.TabIndex = 6;
             // 
-            // rtbPrice
+            // textBox4
             // 
-            this.rtbPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rtbPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbPrice.Location = new System.Drawing.Point(206, 298);
-            this.rtbPrice.Multiline = false;
-            this.rtbPrice.Name = "rtbPrice";
-            this.rtbPrice.Size = new System.Drawing.Size(117, 18);
-            this.rtbPrice.TabIndex = 7;
-            this.rtbPrice.Text = "";
+            this.textBox4.Location = new System.Drawing.Point(206, 298);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(117, 20);
+            this.textBox4.TabIndex = 6;
             // 
             // AddNewRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 473);
-            this.Controls.Add(this.rtbPrice);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.rtbName);
             this.Controls.Add(this.rtbIngredients);
             this.Controls.Add(this.rtbSteps);
@@ -208,10 +198,10 @@
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox rtbSteps;
-        private System.Windows.Forms.RichTextBox rtbIngredients;
         private MetroFramework.Controls.MetroTile metroTile3;
-        private System.Windows.Forms.RichTextBox rtbName;
-        private System.Windows.Forms.RichTextBox rtbPrice;
+        private System.Windows.Forms.TextBox rtbSteps;
+        private System.Windows.Forms.TextBox rtbIngredients;
+        private System.Windows.Forms.TextBox rtbName;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
