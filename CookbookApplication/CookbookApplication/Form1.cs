@@ -92,5 +92,11 @@ namespace CookbookApplication
 
             formWithRecipe.Show();
         }
+
+        private void mButtonAdd_Click(object sender, EventArgs e)
+        {
+            AddNewRecipeForm formAdd = new AddNewRecipeForm();
+            formAdd.Show();
+        }
     }
 }

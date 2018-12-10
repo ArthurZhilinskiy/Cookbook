@@ -129,6 +129,7 @@
             this.mButtonAdd.TileImage = global::CookbookApplication.Properties.Resources.Add1;
             this.mButtonAdd.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mButtonAdd.UseTileImage = true;
+            this.mButtonAdd.Click += new System.EventHandler(this.mButtonAdd_Click);
             // 
             // MainApplicationForm
             // 

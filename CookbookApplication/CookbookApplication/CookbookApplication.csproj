@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewRecipeForm.Designer.cs">
+      <DependentUpon>AddNewRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Carts.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddNewRecipeForm.resx">
+      <DependentUpon>AddNewRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Carts.resx">
       <DependentUpon>Carts.cs</DependentUpon>
     </EmbeddedResource>
