@@ -83,11 +83,11 @@
     <Compile Include="Carts.Designer.cs">
       <DependentUpon>Carts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainApplicationForm.Designer.cs">
+      <DependentUpon>MainApplicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormWithRecipe.cs">
       <SubType>Form</SubType>
@@ -103,8 +103,8 @@
     <EmbeddedResource Include="Carts.resx">
       <DependentUpon>Carts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainApplicationForm.resx">
+      <DependentUpon>MainApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormWithRecipe.resx">
       <DependentUpon>FormWithRecipe.cs</DependentUpon>

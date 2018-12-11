@@ -14,11 +14,15 @@ namespace CookbookApplication
 {
     public partial class AddNewRecipeForm : MetroFramework.Forms.MetroForm
     {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\CookBook.mdf;Integrated Security = True; Connect Timeout = 30";
+
         string imageName;
         string path;
-        public AddNewRecipeForm()
+        MainApplicationForm form;
+        public AddNewRecipeForm(MainApplicationForm form)
         {
             InitializeComponent();
+            this.form = form;
         }
 
         private void metroTile3_Click(object sender, EventArgs e)
@@ -44,10 +48,17 @@ namespace CookbookApplication
         {
             //Копирование картинки в папку DishImages
             string copyTo = Application.StartupPath + @"\DishImages\" + imageName;
-            CopyFile(path, copyTo);
-           
+            
+            
+            try
+            {
+                CopyFile(path, copyTo);
+            }
+            catch
+            {
+                
+            }
             //Добавление записей в БД
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\CookBook.mdf;Integrated Security = True; Connect Timeout = 30";
 
             SqlConnection connection = new SqlConnection(connectionString);
             try
@@ -81,6 +92,16 @@ namespace CookbookApplication
             reader2.Close();
             connection.Close();
             copyTo = "";
+            UpdateForm(form);
+            this.Close();
+        }
+
+        private void UpdateForm(MainApplicationForm form)
+        {
+            form.flowLayoutPanel1.Controls.Clear();
+
+            form.getRecipes();
+
         }
     }
 }
