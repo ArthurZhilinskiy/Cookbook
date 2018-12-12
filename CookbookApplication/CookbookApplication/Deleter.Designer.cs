@@ -1,6 +1,6 @@
 ﻿namespace CookbookApplication
 {
-    partial class Carts
+    partial class Deleter
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,38 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
-            // metroTile1
-            // 
-            this.metroTile1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTile1.Location = new System.Drawing.Point(0, 0);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(300, 150);
-            this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "Название блюда";
-            this.metroTile1.TileImage = global::CookbookApplication.Properties.Resources.Харчо;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.metroTile1.UseTileImage = true;
-            // 
-            // Carts
+            // Deleter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.metroTile1);
-            this.Name = "Carts";
-            this.Size = new System.Drawing.Size(300, 150);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImage = global::CookbookApplication.Properties.Resources.Delete;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.DoubleBuffered = true;
+            this.Name = "Deleter";
+            this.Size = new System.Drawing.Size(25, 25);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        public MetroFramework.Controls.MetroTile metroTile1;
     }
 }

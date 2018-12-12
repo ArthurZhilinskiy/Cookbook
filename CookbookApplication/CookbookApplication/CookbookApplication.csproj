@@ -83,6 +83,12 @@
     <Compile Include="Carts.Designer.cs">
       <DependentUpon>Carts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deleter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Deleter.Designer.cs">
+      <DependentUpon>Deleter.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Carts.resx">
       <DependentUpon>Carts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deleter.resx">
+      <DependentUpon>Deleter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainApplicationForm.resx">
       <DependentUpon>MainApplicationForm.cs</DependentUpon>

@@ -50,13 +50,13 @@ namespace CookbookApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                Carts cart = new Carts();
+                Carts cart = new Carts(reader[1].ToString());
                 //загружаем картинку в контрол
                 cart.metroTile1.TileImage = Image.FromFile(Application.StartupPath + @"\" + reader[0].ToString());
                 cart.metroTile1.Text = reader[1].ToString();
                 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
-                cart.pictureBox1.Click += new System.EventHandler(del_Click);
+                //cart.deleter1.Click += new System.EventHandler(del_Click);
 
                 cart.metroTile1.TileImageAlign = ContentAlignment.MiddleCenter;
                 flowLayoutPanel1.Controls.Add(cart);
@@ -64,15 +64,7 @@ namespace CookbookApplication
             connection.Close();
         }
 
-        private void del_Click(object sender, EventArgs e)
-        {
-            QueryToDelete query = new QueryToDelete();
-            query.ShowDialog();
-            if(query.DialogResult == DialogResult.OK)
-            {
-
-            }
-        }
+        
 
         private void cart_Click(object sender, EventArgs e )
         {
