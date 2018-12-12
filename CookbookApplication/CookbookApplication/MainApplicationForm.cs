@@ -56,14 +56,27 @@ namespace CookbookApplication
                 cart.metroTile1.Text = reader[1].ToString();
                 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
+                cart.pictureBox1.Click += new System.EventHandler(del_Click);
+
                 cart.metroTile1.TileImageAlign = ContentAlignment.MiddleCenter;
                 flowLayoutPanel1.Controls.Add(cart);
             }
             connection.Close();
         }
 
-        private void cart_Click(object sender, EventArgs e)
+        private void del_Click(object sender, EventArgs e)
         {
+            QueryToDelete query = new QueryToDelete();
+            query.ShowDialog();
+            if(query.DialogResult == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void cart_Click(object sender, EventArgs e )
+        {
+            
             FormWithRecipe formWithRecipe = new FormWithRecipe();
             MetroFramework.Controls.MetroTile mt = sender as MetroFramework.Controls.MetroTile;
             formWithRecipe.pictureBox1.Image = mt.TileImage;

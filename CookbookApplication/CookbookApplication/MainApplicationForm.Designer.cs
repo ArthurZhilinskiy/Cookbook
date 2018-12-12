@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.mLeftSidePanel = new MetroFramework.Controls.MetroPanel();
+            this.mListDishes = new MetroFramework.Controls.MetroPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mButtonFilter = new MetroFramework.Controls.MetroTile();
             this.mButtonFind = new MetroFramework.Controls.MetroTile();
             this.mButtonAdd = new MetroFramework.Controls.MetroTile();
-            this.mListDishes = new MetroFramework.Controls.MetroPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mLeftSidePanel.SuspendLayout();
             this.mListDishes.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,37 @@
             this.mLeftSidePanel.VerticalScrollbarBarColor = true;
             this.mLeftSidePanel.VerticalScrollbarHighlightOnWheel = false;
             this.mLeftSidePanel.VerticalScrollbarSize = 10;
+            // 
+            // mListDishes
+            // 
+            this.mListDishes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mListDishes.Controls.Add(this.flowLayoutPanel1);
+            this.mListDishes.HorizontalScrollbarBarColor = true;
+            this.mListDishes.HorizontalScrollbarHighlightOnWheel = false;
+            this.mListDishes.HorizontalScrollbarSize = 10;
+            this.mListDishes.Location = new System.Drawing.Point(68, 63);
+            this.mListDishes.Margin = new System.Windows.Forms.Padding(10);
+            this.mListDishes.Name = "mListDishes";
+            this.mListDishes.Size = new System.Drawing.Size(683, 394);
+            this.mListDishes.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mListDishes.TabIndex = 1;
+            this.mListDishes.VerticalScrollbarBarColor = true;
+            this.mListDishes.VerticalScrollbarHighlightOnWheel = false;
+            this.mListDishes.VerticalScrollbarSize = 10;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 27);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(654, 364);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // mButtonFilter
             // 
@@ -99,37 +130,6 @@
             this.mButtonAdd.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mButtonAdd.UseTileImage = true;
             this.mButtonAdd.Click += new System.EventHandler(this.mButtonAdd_Click);
-            // 
-            // mListDishes
-            // 
-            this.mListDishes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mListDishes.Controls.Add(this.flowLayoutPanel1);
-            this.mListDishes.HorizontalScrollbarBarColor = true;
-            this.mListDishes.HorizontalScrollbarHighlightOnWheel = false;
-            this.mListDishes.HorizontalScrollbarSize = 10;
-            this.mListDishes.Location = new System.Drawing.Point(68, 63);
-            this.mListDishes.Margin = new System.Windows.Forms.Padding(10);
-            this.mListDishes.Name = "mListDishes";
-            this.mListDishes.Size = new System.Drawing.Size(683, 394);
-            this.mListDishes.Style = MetroFramework.MetroColorStyle.Blue;
-            this.mListDishes.TabIndex = 1;
-            this.mListDishes.VerticalScrollbarBarColor = true;
-            this.mListDishes.VerticalScrollbarHighlightOnWheel = false;
-            this.mListDishes.VerticalScrollbarSize = 10;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 27);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(654, 364);
-            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // MainApplicationForm
             // 
