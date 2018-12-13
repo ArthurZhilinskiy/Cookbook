@@ -32,7 +32,6 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,7 +39,6 @@
             this.rtbSteps = new System.Windows.Forms.TextBox();
             this.rtbIngredients = new System.Windows.Forms.TextBox();
             this.rtbName = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,15 +79,6 @@
             this.metroLabel3.Size = new System.Drawing.Size(88, 19);
             this.metroLabel3.TabIndex = 2;
             this.metroLabel3.Text = "Как готовить:";
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(206, 276);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(44, 19);
-            this.metroLabel4.TabIndex = 2;
-            this.metroLabel4.Text = "Цена:";
             // 
             // metroTile2
             // 
@@ -151,22 +140,14 @@
             // 
             this.rtbName.Location = new System.Drawing.Point(24, 299);
             this.rtbName.Name = "rtbName";
-            this.rtbName.Size = new System.Drawing.Size(176, 20);
+            this.rtbName.Size = new System.Drawing.Size(299, 20);
             this.rtbName.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(206, 298);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(117, 20);
-            this.textBox4.TabIndex = 6;
             // 
             // AddNewRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 473);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.rtbName);
             this.Controls.Add(this.rtbIngredients);
             this.Controls.Add(this.rtbSteps);
@@ -174,7 +155,6 @@
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroTile3);
             this.Controls.Add(this.metroTile2);
@@ -196,7 +176,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -204,6 +183,5 @@
         private System.Windows.Forms.TextBox rtbSteps;
         private System.Windows.Forms.TextBox rtbIngredients;
         private System.Windows.Forms.TextBox rtbName;
-        private System.Windows.Forms.TextBox textBox4;
     }
 }

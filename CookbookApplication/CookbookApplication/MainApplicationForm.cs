@@ -50,13 +50,21 @@ namespace CookbookApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                Carts cart = new Carts(reader[1].ToString());
+                string image_path = Application.StartupPath + @"\" + reader[0].ToString();
+                Carts cart = new Carts(reader[1].ToString(), image_path, this);
                 //загружаем картинку в контрол
-                cart.metroTile1.TileImage = Image.FromFile(Application.StartupPath + @"\" + reader[0].ToString());
+
+                // Загружаем исходное изображение
+                var defaultImage = new Bitmap(Image.FromFile(image_path));
+
+                // Масштабируем до нужного размера
+                var scalingImage = new Bitmap(defaultImage, 300, 150);
+
+                cart.metroTile1.TileImage = scalingImage;
                 cart.metroTile1.Text = reader[1].ToString();
                 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
-                //cart.deleter1.Click += new System.EventHandler(del_Click);
+                
 
                 cart.metroTile1.TileImageAlign = ContentAlignment.MiddleCenter;
                 flowLayoutPanel1.Controls.Add(cart);

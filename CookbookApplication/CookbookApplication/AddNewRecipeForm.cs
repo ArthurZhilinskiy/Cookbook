@@ -44,19 +44,19 @@ namespace CookbookApplication
             fn.CopyTo(to, true);
         }
 
-        private void metroTile1_Click(object sender, EventArgs e)
+        private void AddData()
         {
             //Копирование картинки в папку DishImages
             string copyTo = Application.StartupPath + @"\DishImages\" + imageName;
-            
-            
+
+
             try
             {
                 CopyFile(path, copyTo);
             }
             catch
             {
-                
+
             }
             //Добавление записей в БД
 
@@ -72,28 +72,72 @@ namespace CookbookApplication
                 connection.Close();
             }
 
-            string folderPlusFileName = @"DishImages\" + imageName;
-
-            SqlCommand command = new SqlCommand("INSERT INTO Recipes(name_recipe, image_recipe) VALUES (N'"+rtbName.Text+"', N'"+ folderPlusFileName + "')", connection);
-            SqlDataReader reader;
-            reader = command.ExecuteReader();
-            reader.Close();
-            SqlCommand command1 = new SqlCommand("SELECT Id FROM Recipes WHERE name_recipe = N'"+rtbName.Text+"'", connection);
-            SqlDataReader reader1 = command1.ExecuteReader();
-
-            string id_recipe = "";
-            while (reader1.Read())
+            SqlCommand command_proverka = new SqlCommand("SELECT id FROM Recipes WHERE name_recipe = N'"+rtbName.Text+"'", connection);
+            SqlDataReader reader_proverka = command_proverka.ExecuteReader();
+            int count = 0;
+            while (reader_proverka.Read())
             {
-                id_recipe = reader1[0].ToString();
+                count++;
             }
-            reader1.Close();
-            SqlCommand command2 = new SqlCommand("INSERT INTO Descryption(id_recipe, name, ingredients, steps) VALUES (N'" + id_recipe + "', N'" + rtbName.Text + "', N'"+ rtbIngredients.Text +"', N'"+ rtbSteps.Text +"')", connection);
-            SqlDataReader reader2 = command2.ExecuteReader();
-            reader2.Close();
+            reader_proverka.Close();
+            if (count == 0)
+            {
+                string folderPlusFileName = @"DishImages\" + imageName;
+
+                SqlCommand command = new SqlCommand("INSERT INTO Recipes(name_recipe, image_recipe) VALUES (N'" + rtbName.Text + "', N'" + folderPlusFileName + "')", connection);
+                command.ExecuteNonQuery();
+                SqlCommand command1 = new SqlCommand("SELECT Id FROM Recipes WHERE name_recipe = N'" + rtbName.Text + "'", connection);
+                SqlDataReader reader1 = command1.ExecuteReader();
+
+                string id_recipe = "";
+                while (reader1.Read())
+                {
+                    id_recipe = reader1[0].ToString();
+                }
+                reader1.Close();
+                SqlCommand command2 = new SqlCommand("INSERT INTO Descryption(id_recipe, name, ingredients, steps) VALUES (N'" + id_recipe + "', N'" + rtbName.Text + "', N'" + rtbIngredients.Text + "', N'" + rtbSteps.Text + "')", connection);
+                command2.ExecuteNonQuery();
+                connection.Close();
+                copyTo = "";
+                UpdateForm(form);
+                this.Close();
+            }
             connection.Close();
-            copyTo = "";
-            UpdateForm(form);
-            this.Close();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                if (rtbName.Text != String.Empty && !String.IsNullOrWhiteSpace(rtbName.Text))
+                {
+                    if (rtbIngredients.Text != String.Empty && !String.IsNullOrWhiteSpace(rtbIngredients.Text))
+                    {
+                        if (rtbSteps.Text != String.Empty && !String.IsNullOrWhiteSpace(rtbSteps.Text))
+                        {
+                            AddData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Заполните поле [Как готовить]!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Заполните поле [Ингредиенты]!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Заполните поле [Название]!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Выберите изображение!");
+            }
+
         }
 
         private void UpdateForm(MainApplicationForm form)

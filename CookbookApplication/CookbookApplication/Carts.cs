@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace CookbookApplication
 {
@@ -15,14 +16,17 @@ namespace CookbookApplication
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\CookBook.mdf;Integrated Security = True; Connect Timeout = 30";
 
-        public Carts(string name_recipe)
+        public Carts(string name_recipe, string image_path, MainApplicationForm mainApplicationForm)
         {
             InitializeComponent();
-            Deleter del = new Deleter(name_recipe);
+            
+            Deleter del = new Deleter(name_recipe, image_path, mainApplicationForm);
             del.Location = new Point(271, 3);
             del.Size = new Size(25, 25);
             del.Click += new System.EventHandler(del_Click);
             metroTile1.Controls.Add(del);
+            
+            
         }
 
 
@@ -52,15 +56,24 @@ namespace CookbookApplication
                     string name = del.name_recipe;
 
                     SqlCommand command = new SqlCommand("DELETE FROM Recipes WHERE name_recipe = N'" + name + "'", connection);
-                    command.BeginExecuteNonQuery();
+                    command.ExecuteNonQuery();
                     connection.Close();
                     connection.Open();
                     SqlCommand command1 = new SqlCommand("DELETE FROM Descryption WHERE name = N'" + name + "'", connection);
-                    SqlDataReader dr = command1.ExecuteReader();
-                    
+                    command1.ExecuteNonQuery();
+
+                    this.metroTile1.TileImage.Dispose();
+                    //удаляем картинку из папки
+                    if (File.Exists(del.image_path))
+                    {
+                        File.Delete(del.image_path);
+                    }
+                    del.mainApplicationForm.flowLayoutPanel1.Controls.Clear();
+                    del.mainApplicationForm.getRecipes();
                 }
 
                 connection.Close();
+                
             }
         }
 
