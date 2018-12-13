@@ -77,7 +77,7 @@ namespace CookbookApplication
         private void cart_Click(object sender, EventArgs e )
         {
             
-            FormWithRecipe formWithRecipe = new FormWithRecipe();
+            FormWithRecipe formWithRecipe = new FormWithRecipe(this);
             MetroFramework.Controls.MetroTile mt = sender as MetroFramework.Controls.MetroTile;
             formWithRecipe.pictureBox1.Image = mt.TileImage;
             formWithRecipe.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -113,6 +113,53 @@ namespace CookbookApplication
             AddNewRecipeForm formAdd = new AddNewRecipeForm(this);
             formAdd.Show();
 
+        }
+
+        private void mButtonFind_Click(object sender, EventArgs e)
+        {
+            Find();
+        }
+
+        private void Find()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                connection.Close();
+            }
+
+            SqlCommand command = new SqlCommand("SELECT image_recipe, name_recipe FROM Recipes WHERE name_recipe LIKE N'%"+tbSearch.Text+"%'", connection);
+            SqlDataReader reader;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string image_path = Application.StartupPath + @"\" + reader[0].ToString();
+                Carts cart = new Carts(reader[1].ToString(), image_path, this);
+                //загружаем картинку в контрол
+
+                // Загружаем исходное изображение
+                var defaultImage = new Bitmap(Image.FromFile(image_path));
+
+                // Масштабируем до нужного размера
+                var scalingImage = new Bitmap(defaultImage, 300, 150);
+
+                cart.metroTile1.TileImage = scalingImage;
+                cart.metroTile1.Text = reader[1].ToString();
+
+                cart.metroTile1.Click += new System.EventHandler(cart_Click);
+
+
+                cart.metroTile1.TileImageAlign = ContentAlignment.MiddleCenter;
+                flowLayoutPanel1.Controls.Add(cart);
+            }
+            connection.Close();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace CookbookApplication
 
         string imageName;
         string path;
+        string copyTo;
         MainApplicationForm form;
         public AddNewRecipeForm(MainApplicationForm form)
         {
@@ -35,6 +36,7 @@ namespace CookbookApplication
                 pictureBox1.Image = Image.FromFile(opfd.FileName);
                 path = opfd.FileName;
                 imageName = Path.GetFileName(opfd.FileName);
+                copyTo = Application.StartupPath + @"\DishImages\" + imageName;
             }
         }
 
@@ -47,7 +49,7 @@ namespace CookbookApplication
         private void AddData()
         {
             //Копирование картинки в папку DishImages
-            string copyTo = Application.StartupPath + @"\DishImages\" + imageName;
+            
 
 
             try
@@ -107,7 +109,7 @@ namespace CookbookApplication
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
+            if (pictureBox1.Image != null && !File.Exists(copyTo))
             {
                 if (rtbName.Text != String.Empty && !String.IsNullOrWhiteSpace(rtbName.Text))
                 {
@@ -135,7 +137,7 @@ namespace CookbookApplication
             }
             else
             {
-                MessageBox.Show("Выберите изображение!");
+                MessageBox.Show("Выберите изображение или используйте другое, т.к. оно уже занято!");
             }
 
         }
@@ -146,6 +148,11 @@ namespace CookbookApplication
 
             form.getRecipes();
 
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

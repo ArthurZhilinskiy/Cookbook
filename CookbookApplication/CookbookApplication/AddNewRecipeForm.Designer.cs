@@ -34,11 +34,11 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.rtbSteps = new System.Windows.Forms.TextBox();
             this.rtbIngredients = new System.Windows.Forms.TextBox();
             this.rtbName = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +89,7 @@
             this.metroTile2.TabIndex = 0;
             this.metroTile2.Text = "Отмена";
             this.metroTile2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
             // 
             // metroLabel5
             // 
@@ -98,16 +99,6 @@
             this.metroLabel5.Size = new System.Drawing.Size(98, 19);
             this.metroLabel5.TabIndex = 3;
             this.metroLabel5.Text = "Изображение:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 85);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // metroTile3
             // 
@@ -142,6 +133,16 @@
             this.rtbName.Name = "rtbName";
             this.rtbName.Size = new System.Drawing.Size(299, 20);
             this.rtbName.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 85);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // AddNewRecipeForm
             // 

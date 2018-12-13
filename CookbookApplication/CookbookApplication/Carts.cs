@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
+using System.Collections;
+using System.Diagnostics;
+using System.Management;
+
 namespace CookbookApplication
 {
     public partial class Carts : MetroFramework.Controls.MetroUserControl
@@ -66,7 +70,10 @@ namespace CookbookApplication
                     //удаляем картинку из папки
                     if (File.Exists(del.image_path))
                     {
-                        File.Delete(del.image_path);
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        FileInfo f = new FileInfo(del.image_path);
+                        f.Delete();
                     }
                     del.mainApplicationForm.flowLayoutPanel1.Controls.Clear();
                     del.mainApplicationForm.getRecipes();
