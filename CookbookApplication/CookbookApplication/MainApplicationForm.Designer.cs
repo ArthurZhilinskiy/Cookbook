@@ -31,7 +31,8 @@
             this.mLeftSidePanel = new MetroFramework.Controls.MetroPanel();
             this.mListDishes = new MetroFramework.Controls.MetroPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.mButtonFilter = new MetroFramework.Controls.MetroTile();
+            this.tbSearch = new MetroFramework.Controls.MetroTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mButtonFind = new MetroFramework.Controls.MetroTile();
             this.mButtonAdd = new MetroFramework.Controls.MetroTile();
             this.mLeftSidePanel.SuspendLayout();
@@ -43,8 +44,6 @@
             this.mLeftSidePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.mLeftSidePanel.BackColor = System.Drawing.Color.White;
-            this.mLeftSidePanel.Controls.Add(this.mButtonFilter);
-            this.mLeftSidePanel.Controls.Add(this.mButtonFind);
             this.mLeftSidePanel.Controls.Add(this.mButtonAdd);
             this.mLeftSidePanel.HorizontalScrollbarBarColor = true;
             this.mLeftSidePanel.HorizontalScrollbarHighlightOnWheel = false;
@@ -53,6 +52,7 @@
             this.mLeftSidePanel.Name = "mLeftSidePanel";
             this.mLeftSidePanel.Size = new System.Drawing.Size(60, 394);
             this.mLeftSidePanel.TabIndex = 0;
+            this.mLeftSidePanel.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mLeftSidePanel.VerticalScrollbarBarColor = true;
             this.mLeftSidePanel.VerticalScrollbarHighlightOnWheel = false;
             this.mLeftSidePanel.VerticalScrollbarSize = 10;
@@ -62,7 +62,9 @@
             this.mListDishes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.mListDishes.Controls.Add(this.label1);
             this.mListDishes.Controls.Add(this.flowLayoutPanel1);
+            this.mListDishes.Controls.Add(this.mButtonFind);
             this.mListDishes.HorizontalScrollbarBarColor = true;
             this.mListDishes.HorizontalScrollbarHighlightOnWheel = false;
             this.mListDishes.HorizontalScrollbarSize = 10;
@@ -72,6 +74,7 @@
             this.mListDishes.Size = new System.Drawing.Size(683, 394);
             this.mListDishes.Style = MetroFramework.MetroColorStyle.Blue;
             this.mListDishes.TabIndex = 1;
+            this.mListDishes.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mListDishes.VerticalScrollbarBarColor = true;
             this.mListDishes.VerticalScrollbarHighlightOnWheel = false;
             this.mListDishes.VerticalScrollbarSize = 10;
@@ -88,33 +91,36 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(654, 364);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // mButtonFilter
+            // tbSearch
             // 
-            this.mButtonFilter.ForeColor = System.Drawing.Color.White;
-            this.mButtonFilter.Location = new System.Drawing.Point(5, 139);
-            this.mButtonFilter.Name = "mButtonFilter";
-            this.mButtonFilter.Size = new System.Drawing.Size(50, 50);
-            this.mButtonFilter.Style = MetroFramework.MetroColorStyle.Silver;
-            this.mButtonFilter.TabIndex = 2;
-            this.mButtonFilter.Text = "Filter";
-            this.mButtonFilter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mButtonFilter.TileImage = global::CookbookApplication.Properties.Resources.Filter;
-            this.mButtonFilter.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mButtonFilter.UseTileImage = true;
+            this.tbSearch.Location = new System.Drawing.Point(198, 66);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(161, 23);
+            this.tbSearch.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Поиск по названию:";
             // 
             // mButtonFind
             // 
             this.mButtonFind.ForeColor = System.Drawing.Color.White;
-            this.mButtonFind.Location = new System.Drawing.Point(5, 83);
+            this.mButtonFind.Location = new System.Drawing.Point(292, 3);
             this.mButtonFind.Name = "mButtonFind";
-            this.mButtonFind.Size = new System.Drawing.Size(50, 50);
+            this.mButtonFind.Size = new System.Drawing.Size(29, 23);
             this.mButtonFind.Style = MetroFramework.MetroColorStyle.Silver;
             this.mButtonFind.TabIndex = 2;
-            this.mButtonFind.Text = "Find";
             this.mButtonFind.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mButtonFind.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mButtonFind.TileImage = global::CookbookApplication.Properties.Resources.Find;
             this.mButtonFind.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mButtonFind.UseTileImage = true;
+            this.mButtonFind.Click += new System.EventHandler(this.mButtonFind_Click);
             // 
             // mButtonAdd
             // 
@@ -124,8 +130,8 @@
             this.mButtonAdd.Size = new System.Drawing.Size(50, 50);
             this.mButtonAdd.Style = MetroFramework.MetroColorStyle.Silver;
             this.mButtonAdd.TabIndex = 2;
-            this.mButtonAdd.Text = "Add";
             this.mButtonAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mButtonAdd.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mButtonAdd.TileImage = global::CookbookApplication.Properties.Resources.Add1;
             this.mButtonAdd.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mButtonAdd.UseTileImage = true;
@@ -137,16 +143,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(760, 480);
+            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.mListDishes);
             this.Controls.Add(this.mLeftSidePanel);
             this.MinimumSize = new System.Drawing.Size(760, 480);
             this.Name = "MainApplicationForm";
             this.Style = MetroFramework.MetroColorStyle.Silver;
-            this.Text = "Cookbook";
+            this.Text = "Кулинарная книга";
+            this.Theme = MetroFramework.MetroThemeStyle.Light;
             this.Load += new System.EventHandler(this.MainApplicationForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainApplicationForm_SizeChanged);
             this.mLeftSidePanel.ResumeLayout(false);
             this.mListDishes.ResumeLayout(false);
+            this.mListDishes.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -154,11 +163,12 @@
         #endregion
 
         private MetroFramework.Controls.MetroPanel mLeftSidePanel;
-        private MetroFramework.Controls.MetroTile mButtonFilter;
         private MetroFramework.Controls.MetroTile mButtonFind;
         private MetroFramework.Controls.MetroTile mButtonAdd;
         private MetroFramework.Controls.MetroPanel mListDishes;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private MetroFramework.Controls.MetroTextBox tbSearch;
+        private System.Windows.Forms.Label label1;
     }
 }
 

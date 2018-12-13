@@ -155,6 +155,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Edit1.png" />
+    <None Include="Resources\Edit.png" />
     <None Include="Resources\Delete.png" />
     <None Include="Resources\Харчо.jpg" />
     <None Include="Resources\Filter.png" />
